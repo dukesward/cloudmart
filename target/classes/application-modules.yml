@@ -1,0 +1,4 @@
+cloudtube:
+  applications:
+    auth:
+      auth_session_expiry: 7

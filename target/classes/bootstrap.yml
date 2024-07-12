@@ -1,0 +1,50 @@
+spring:
+  data:
+    redis:
+      database: 0
+      host: 192.168.0.100
+      port: 6379
+      timeout: 30000
+  profiles:
+    active: dev
+  application:
+    name: cloudtube-services-1
+  cloud:
+    config:
+      #uri: http://localhost:3005
+      label: main
+      name: cloudtube-app
+      profile: dev
+      uri: http://192.168.0.100:8082
+      discovery:
+        enabled: false
+      enabled: false
+    zookeeper:
+      discovery:
+        enabled: false
+      connect-string: localhost:2180
+      session-timeout: 5000
+      enabled: false
+
+logging:
+  level:
+    com:
+      web:
+        cloudtube:
+          core: DEBUG
+    org:
+      apache:
+        zookeeper:
+          ClientCnxn: INFO
+    springframework:
+      cache: DEBUG
+      cloud:
+        config: DEBUG
+      transaction: DEBUG
+      data:
+        redis: DEBUG
+
+application:
+  server:
+    machine-id: 1
+    data-center: 0
